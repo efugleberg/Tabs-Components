@@ -29,12 +29,20 @@ class TabLink {
     const links = document.querySelectorAll('.tabs-link');
 
     // Using a loop or the forEach method remove the 'tabs-link-selected' class from all of the links
+    /* This takes the NodeList you made above, turns it into an array,
+      and then removes all of the CSS formatting.
+    */
     links.forEach(element => element.classList.remove('tabs-link-selected'));
 
     // Add a class named "tabs-link-selected" to this link
+    /* This adds the called CSS formatting each time you
+      toggle on the tab.
+    */
     this.element.classList.toggle('tabs-link-selected');
     
     // Call the select method on the item associated with this link
+    /* This calls the method on the new item that you created.
+    */
     this.tabItem.select();
   }
 }
