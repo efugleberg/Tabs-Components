@@ -19,13 +19,20 @@ class TabLink {
 
   select() {
     // Get all of the elements with the tabs-link class
-    const links = this.element.querySelectorAll('.tabs-link');
+    /* For the red border to show white when selected and red
+      when not selected, you must use document.querySelectorAll.
+      If using this.element.querySelectorAll, the tabs will state
+      white even while clicked off.  Stay consistent and use
+      document.querySelectorAll for both the const links and the
+      const items in the select() method below.  
+    */
+    const links = document.querySelectorAll('.tabs-link');
 
     // Using a loop or the forEach method remove the 'tabs-link-selected' class from all of the links
     links.forEach(element => element.classList.remove('tabs-link-selected'));
 
     // Add a class named "tabs-link-selected" to this link
-    this.element.classList.add('tabs-link-selected');
+    this.element.classList.toggle('tabs-link-selected');
     
     // Call the select method on the item associated with this link
     this.tabItem.select();
@@ -45,7 +52,7 @@ class TabItem {
     // Remove the class "tabs-item-selected" from each element
     items.forEach(element => element.classList.remove('tabs-item-selected'))
     // Add a class named "tabs-item-selected" to this element
-    this.element.classList.add('tabs-item-selected');
+    this.element.classList.toggle('tabs-item-selected');
   }
 }
 
