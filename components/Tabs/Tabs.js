@@ -5,9 +5,20 @@ class TabLink {
     this.element = element;
     
     // Get the custom data attribute on the Link
+    /* After dataset is .tab.  The reason that it's .tab is because the
+      reference item is data-tab="#".  Tab references the word after data-.
+      If it were data-flank, we'd say this.element.dataset.flank. If using
+      dataset., you must put data- in the HTML.  What comes after data- is
+      up to you.
+    */
     this.data = this.element.dataset.tab;
     
     // Using the custom data attribute get the associated Item element
+    /* To match up the data tab to the data element, the data-tab="#" for
+      the tab and the content must match in your HTML.  For example, data-tab="1"
+      must match in the tab HTML and the content HTML to be matched up in JS. Tab 1
+      will match up with content 1 if they both contain data-tab="1".
+    */
     this.itemElement = document.querySelector(`.tabs-item[data-tab="${this.data}"]`);
     
     // Using the Item element, create a new instance of the TabItem class
